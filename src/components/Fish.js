@@ -1,8 +1,9 @@
 import React from 'react';
 import { formatPrice } from '../helpers';
 
-const Fish = ({ details }) => {
+const Fish = ({ details, addToOrder, index }) => {
   const { image, name, price, desc, status } = details;
+  const isAvailable = status === 'available';
   return (
     <li className="menu-fish">
       <img src={image} alt={name} />
@@ -11,7 +12,7 @@ const Fish = ({ details }) => {
         <span className="price">{formatPrice(price)}</span>
       </h3>
       <p>{desc}</p>
-      <button>Add To Cart</button>
+      <button disabled={!isAvailable} onClick={() => addToOrder(index)}>{isAvailable ? 'Add To Order' : 'Sold Out!'}</button>
     </li>
   );
 };
