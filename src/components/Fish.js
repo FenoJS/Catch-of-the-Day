@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { formatPrice } from '../helpers';
 
 const Fish = ({ details, addToOrder, index }) => {
@@ -15,6 +16,18 @@ const Fish = ({ details, addToOrder, index }) => {
       <button disabled={!isAvailable} onClick={() => addToOrder(index)}>{isAvailable ? 'Add To Order' : 'Sold Out!'}</button>
     </li>
   );
+};
+
+Fish.propTypes = {
+  details: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    desc: PropTypes.string,
+    status: PropTypes.string,
+    price: PropTypes.number,
+  }),
+  index: PropTypes.string,
+  addToOrder: PropTypes.func,
 };
 
 export default Fish;
