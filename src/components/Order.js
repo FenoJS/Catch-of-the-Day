@@ -9,7 +9,7 @@ class Order extends Component {
     order: PropTypes.object,
     RemoveFromOrder: PropTypes.func,
   }
-  
+
   rednerOrder = key => {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
